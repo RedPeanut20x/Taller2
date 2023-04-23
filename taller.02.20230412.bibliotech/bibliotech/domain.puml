@@ -1,0 +1,29 @@
+@startuml
+
+class Libro{
+Isbn
+Titulo
+Autor
+Cateogria
+}
+
+class Socio{
+Nombre
+Apellido
+Correo Electronico
+Numero de socio
+Contrasenia
+Libros
+}
+class Sistema{
+Socios
+Libros
+}
+Libro "1"-- "0,5"Socio
+Sistema "0...*"-- "1" Socio
+Sistema "0...*"-- "1" Libro
+skin rose
+
+' TODO: Add the domain model
+
+@enduml

@@ -1,0 +1,65 @@
+@startuml
+
+
+class Libro {
+
+-isbn : String
+-titulo : String
+-autor : String
+-categoria : String
+
++Libro(isbn : String, titulo : String, autor : String, categoria : String)
++getIsbn() : String
++getTitulo() : String
++getAutor() : String
++getCategoria() : String
+
+}
+
+class Socio {
+
+-nombre : String
+-apellido : String
+-correoElectronico : String
+-numeroDeSocio : int
+-contraseña : String
+-librosEnPrestamo : Libro[]
+
++Socio(nombre : String, apellido : String, correoElectronico : String, numeroDeSocio : int, contraseña : String)
++getNombre() : String
++getApellido() : String
++getNombreCompleto() : String
++getCorreoElectronico() : String
++getNumeroDeSocio() : int
++getContrasenia() : String
++agregarLibro() : void
+
+}
+
+class Sistema {
+
+-socio : Socio
+
++Sistema()
++iniciarSession(numeroDeSocio : final int , contrasenia : final String) : void
++cerrarSession() : void
++realizarPrestamoLibro(isbn : String) : void
++obtegerCatalogoLibros() : String
++buscarLibro(isbn : String) : Libro
++cargarInformacion() : void
++guardarInformacion() : void
++obtenerDatosSocioLogeado() : String
++obtenerSocioLogeado() : Socio
+
+}
+
+Socio "1"--> "0...*" Libro
+Sistema "1"--> "1...*" Libro : -libros : Libro[]
+Sistema "1"--> "1...*" Socio : -socios : Socio[]
+
+
+skin rose
+
+' TODO: Add the class model
+
+@enduml
